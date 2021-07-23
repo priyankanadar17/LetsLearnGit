@@ -1,0 +1,84 @@
+This file consists of all the commands used to perform the assignment,step by step.
+
+1. Create a local repository and 3 text files into it. 
+	a)mkdir LetsLearnGit, cd LetsLearnGit/
+	b)git init
+	c)notepad first.txt,notepad second.txt,notepad third.txt
+
+2. Create 2 branches as Dev and Test.
+	a)git checkout -b Dev,git checkout -b Test
+	b)git branch
+		Result:
+		Dev
+		Test
+		* master
+
+3. Commit 1 file into Dev and 2 files into Test.
+	a)Inside Test,
+		git add second.txt,git add third.txt
+		git commit -m "committed second"
+		git commit -m "committed third"
+	b)Inside Dev,
+		git add first.txt
+		git commit -m "committed in Dev"
+		
+4. Modify 1st file some text.
+	a)Inside Dev,notepad first.txt and add a new sentence
+	b)git add first.txt
+	c)git commit -m "modified first.txt"
+	
+5. Check differences and status.
+	a) git status
+		Result:
+		On branch Dev
+		nothing to commit, working tree clean
+	b) git log.Copy log of most recent modification.
+	c) git show 7d52435ef052a421c81f65f49eb62b4843e447b8
+		Result:
+		Author: priyankanadar17 <priyanka.nadar17@siesgst.ac.in>
+		Date:   Fri Jul 23 23:48:12 2021 +0530
+
+    		modified first.txt
+
+		diff --git a/first.txt b/first.txt
+		index 7a2d1e7..645cda9 100644
+		--- a/first.txt
+		+++ b/first.txt
+		@@ -1 +1,2 @@
+		-Python is used for data science.(Initial Text)
+		\ No newline at end of file
+		+Python is used for data science.
+		+It is really efficient.(Addition Visible)
+		\ No newline at end of file
+
+6. Finally merge all together in a master branch.
+	a)git checkout master
+	b)git merge Dev,git merge Test
+
+7. Push this repository on your github.
+	a)git remote add origin https://github.com/priyankanadar17/LetsLearnGit.git
+	b)git remote -v
+	c)git push -u origin master
+
+8. Create a clone for this repo from github to local system with another location.
+	a)cd .., cd Desktop,mkdir Clone,cd Clone(The folder LetsLearnGit is in C drive. Now,path for cloned file is Desktop)
+	b)git clone https://github.com/priyankanadar17/LetsLearnGit.git
+	c) ls
+		Result:		
+		LetsLearnGit/
+	d)cd LetsLearnGit/
+	  ls
+		Result:
+		first.txt,second.txt,third.txt
+
+9. Create a new file as Solution.txt in this cloned repository.
+	a)notepad Solution.txt
+ 
+10. Add all commands you have done for above in this Solution.txt file.
+	a)Added all the commands
+
+11. Push the changes to github again in same repository.
+	a)git add Solution.txt
+	b)git commit -m "Solution Committed"
+	c)git push -u origin master
+ 
